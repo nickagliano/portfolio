@@ -1,0 +1,51 @@
+html, body{
+    background-color: #282c34;
+}
+
+header {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: #282c34;
+  color: white;
+  font-family: Montserrat;
+}
+
+@media only screen and (min-device-width: 600px) {
+    
+    .pianoWrapper {
+        background-color: #282c34;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        height: 19em;
+    }
+    
+    .set {
+        height: 19em;
+        margin: auto;
+    }
+
+}
+
+.pianoWrapper {
+    background-color: #282c34;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+h1 {
+    font-weight: lighter;
+}
+

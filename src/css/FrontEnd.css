@@ -1,0 +1,28 @@
+.feContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: left;
+    background-color: rgb(236, 237, 218);
+    padding: 2em;
+}
+
+.feText {
+    color: black;
+    max-width: 40vw;
+    text-align: center;
+    padding: 3em;
+}
+
+span.link {
+    color: rgb(0,0,255);
+    font-weight: bold;
+}
+
+span.link:hover {
+    color: rgb(100,100,200);
+    font-weight: bold;
+    cursor: pointer;
+}

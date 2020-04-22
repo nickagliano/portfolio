@@ -1,0 +1,28 @@
+.aiContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: left;
+    background-color: rgb(236, 237, 218);
+    padding: 2em;
+}
+
+.aiTextLeft {
+    color: black;
+    max-width: 40vw;
+    text-align: center;
+    padding: 3em;
+}
+
+.aiTextRight {
+    color: black;
+    max-width: 40vw;
+    text-align: center;
+    padding: 2em;
+}
+
+img {
+    margin: 1em;
+}

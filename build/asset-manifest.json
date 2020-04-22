@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e1d83cfe.chunk.css",
+    "main.js": "/static/js/main.51ac6ebb.chunk.js",
+    "main.js.map": "/static/js/main.51ac6ebb.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.b61dc181.js",
+    "runtime-main.js.map": "/static/js/runtime-main.b61dc181.js.map",
+    "static/js/2.615f6ab9.chunk.js": "/static/js/2.615f6ab9.chunk.js",
+    "static/js/2.615f6ab9.chunk.js.map": "/static/js/2.615f6ab9.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.4db91924be843fd64a0c1e254eb34c23.js": "/precache-manifest.4db91924be843fd64a0c1e254eb34c23.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.e1d83cfe.chunk.css.map": "/static/css/main.e1d83cfe.chunk.css.map",
+    "static/js/2.615f6ab9.chunk.js.LICENSE.txt": "/static/js/2.615f6ab9.chunk.js.LICENSE.txt",
+    "static/media/me_kayaking.jpg": "/static/media/me_kayaking.a972af91.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b61dc181.js",
+    "static/js/2.615f6ab9.chunk.js",
+    "static/css/main.e1d83cfe.chunk.css",
+    "static/js/main.51ac6ebb.chunk.js"
+  ]
+}
