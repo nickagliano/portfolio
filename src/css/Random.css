@@ -26,3 +26,18 @@ span.link:hover {
     font-weight: bold;
     cursor: pointer;
 }
+
+/* for mobile */
+@media only screen and (max-device-width: 599px) {
+    
+    .randomContainer {
+        flex-direction: column;
+        max-width: 100vw;
+    }
+    
+    .randomText {
+        text-align: center;
+        max-width: 100vw;
+    }
+
+}

@@ -14,7 +14,7 @@ class Random extends Component {
 				</header>
 				<div className="randomContainer">
 					<div className="randomText">
-						<p>whrengewjngerngwerngwehrngojwehrngownergwerbngkhwe</p>
+						<p>whrengewjng erngwerngw ehrngojwehrngowne rgwerbngkhwe</p>
 					</div>
 				</div>
 			</div>

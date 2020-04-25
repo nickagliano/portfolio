@@ -9,28 +9,25 @@
       background-color: #282c34;
     }
     
-    .rainbow {
-        background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
-        background-size: 100% 100%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: rainbow 8s ease infinite;
-        animation-name: rainbow;
-        animation-duration: 8s;
-        animation-timing-function: ease;
-        animation-delay: 0s;
-        animation-iteration-count: infinite;
-        animation-direction: normal;
-        animation-fill-mode: none;
-        animation-play-state: running;
+    .rainbow-text {
+        margin-top: 1.6em;
+      opacity: 0.5;
+      background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+      text-align: center;
+      color: white;
+      border-radius: 4em;
+      background-size: 800% 800%;
+      -webkit-background-clip: padding-box;
+      -webkit-text-fill-color: transparent;
+      font-size: .35em;
+      animation: rainbow 8s ease infinite;
     }
-    
-    @keyframes rainbow {
-        0%   {background-position: 0% 50%;}
-        50%  {background-position: 100% 25%;}
-        100% {top: 0% 50%;}
+
+    @keyframes rainbow { 
+        0%{background-position:0% 50%}
+        50%{background-position:100% 25%}
+        100%{background-position:0% 50%}
     }
-    
 
 
     .piano {
@@ -151,6 +148,7 @@
     .iconWrapper > * {
         padding-top: 1em;
     }
+    
 
     ul li:first-child {
       border-radius:5px 0 5px 5px
@@ -162,7 +160,6 @@
 
 } /* end mobile only css */
 @media only screen and (min-device-width: 600px) {
-    
     
     .rainbow-text {
         opacity: 0.5;
