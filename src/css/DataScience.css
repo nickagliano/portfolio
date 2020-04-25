@@ -26,3 +26,31 @@
 img {
     margin: 1em;
 }
+
+/* for mobile */
+@media only screen and (max-device-width: 599px) {
+    
+    .aiContainer {
+        flex-direction: column;
+        text-align: center;
+        max-width: 100%
+    }
+    
+    .aiTextLeft {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 1em;
+        padding-top: 1em;
+    }
+    
+    .aiTextRight {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 1em;
+        padding-top: 1em;
+    }
+    
+
+}

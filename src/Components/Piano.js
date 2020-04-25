@@ -24,7 +24,7 @@ class Piano extends Component {
 				            <Link to="/">
 								<li className="white f">
 									<span className="iconWrapper">
-										<FaHome size={40} color="rgb(0, 0, 0, .4)" />
+										<FaHome size={40} color="rgb(0, 0, 0, .4)"/>
 									</span>
 								</li>
 							</Link>

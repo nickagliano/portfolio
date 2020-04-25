@@ -26,3 +26,21 @@ span.link:hover {
     font-weight: bold;
     cursor: pointer;
 }
+
+
+/* for mobile */
+@media only screen and (max-device-width: 599px) {
+    
+    .feContainer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .feText {
+        max-width: 100%;
+        padding: 1em;
+        text-align: center;
+    }
+    
+
+}

@@ -29,6 +29,33 @@ img {
     margin: 1em;
 }
 
+p {
+    background-color: rgb(236, 237, 218);
+}
+
 .iconDivider {
     text-align: center;
+}
+
+/* for mobile */
+@media only screen and (max-device-width: 599px) {
+    
+    .aboutContainer {
+        max-width: 100vw;
+    }
+    
+    .bio {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    
+    .bioText {
+        max-width: 90%;
+    }
+    
+    img {
+        max-width: 100vw;
+        height: auto;
+    }
+
 }

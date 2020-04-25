@@ -3,7 +3,6 @@ html, body{
 }
 
 header {
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,7 +20,25 @@ header {
   font-family: Montserrat;
 }
 
+/* for mobile */
+@media only screen and (max-device-width: 600px) {
+    
+    .App {
+        max-width: 100vw;
+    }
+    
+    header {
+        margin-bottom: 24em;
+    }
+
+}
+
+/* for desktop */
 @media only screen and (min-device-width: 600px) {
+    
+    header {
+        min-height: 100vh;
+    }
     
     .pianoWrapper {
         background-color: #282c34;

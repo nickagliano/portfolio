@@ -144,7 +144,13 @@
         margin:24em 0em 0em 0em;
     }
 
-
+    .iconWrapper {
+        padding-right: 10em;
+    }
+    
+    .iconWrapper > * {
+        padding-top: 1em;
+    }
 
     ul li:first-child {
       border-radius:5px 0 5px 5px

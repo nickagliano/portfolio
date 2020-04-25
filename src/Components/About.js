@@ -53,7 +53,7 @@ class About extends Component {
 							<div className="iconDivider">–</div>
 							<p>My preferred languages are <b><i>Javascript</i></b> and <b><i>Python</i></b>. I've been developing with Javascript/HTML/CSS for over 6 years, and Python for 4 years. I'm also very comfortable in Java, C, and C++. The databases I'm most familiar with are MongoDB, mySQL, and Oracle SQL. Other misc. technologies: git, AWS, RESTful API's, AR/VR, Unity.</p>
 							<div className="iconDivider">–</div>
-							<p>Before working in tech, I worked various jobs including outdoor trip leader, whitewater raft guide, bus driver, logistics manager for a rafting company, and lifeguard at a water park. When I'm not writing code, you can find me biking, whitewater kayaking, playing basketball, or tennis.</p>
+							<p>Before working in tech, I held various jobs including outdoor trip leader, whitewater raft guide, bus driver, logistics manager for a rafting company, and lifeguard at a water park. When I'm not writing code, you can find me biking, whitewater kayaking, playing basketball, or tennis.</p>
 						</div>
 					</div>
 				</div>

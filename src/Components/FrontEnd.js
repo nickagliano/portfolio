@@ -21,7 +21,7 @@ class FrontEnd extends Component {
 					<div className="feText">
 						<h1>Personal</h1>
 						<p>I'm very familiar with Javascript, CSS, and HTML. Node.js to me feels like home. Recently, I've devoted a lot of time into learning React and Redux.</p>
-						<h3>Personal front-end development projects I'm working on right now:</h3>
+						<h3>Projects:</h3>
 						<p>- This website</p>
 						<p><span className="link" onClick={()=> window.open("https://cranky-cray-2f8edb.netlify.app/", "_blank")}>- COCO</span>: a collaborative online collage maker</p>
 						<p><span className="link" onClick={()=> window.open("http://www.google.com", "_blank")}>- rva.beer</span>: a local Richmond, VA beer and wine hub</p>
