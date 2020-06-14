@@ -32,7 +32,7 @@ function App() {
                     <Route path="/front-end">
                         <FrontEnd />
                     </Route>
-                    <Route target="_blank">
+                    <Route path="/random">
                         <Random />
                     </Route>
                     <Route path="/">
