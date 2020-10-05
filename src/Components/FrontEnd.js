@@ -25,8 +25,6 @@ class FrontEnd extends Component {
 						<p>- This website</p>
 						<p><span className="link" onClick={()=> window.open("https://www.vc19tf.com/", "_blank")}>- Virginia COVID-19 Task Force</span>: a pro-bono website for a local COVID-19 relief group</p>
 						<p>- rva.beer: a local Richmond, VA beer and wine hub (in progress)</p>
-						<p><span className="link" onClick={()=> window.open("https://cranky-cray-2f8edb.netlify.app/", "_blank")}>- COCO</span>: a collaborative online collage maker (in progress)</p>
-
 					</div>
 					<div className="feText">
 						<h1>Professional</h1>
