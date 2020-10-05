@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/DataScience.css';
+// import '../css/DataScience.css';
 import Piano from './Piano';
 import { FaAngleDoubleDown } from 'react-icons/fa';
 import { GiRobotGolem } from 'react-icons/gi';
