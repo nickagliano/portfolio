@@ -95,7 +95,7 @@
   }
 
   /* Desktop header - default */
-  .title-tablet, .title-mobile {
+  .title-tablet, .title-mobile, .title-small-mobile {
     display: none !important;
   }
   
@@ -115,6 +115,16 @@
       display: none !important;
     }
     .title-mobile {
+      display: block !important;
+    }
+  }
+  
+  /* Very small mobile header (iPhone SE, etc.) */
+  @media (max-width: 380px) {
+    .title-desktop, .title-tablet, .title-mobile {
+      display: none !important;
+    }
+    .title-small-mobile {
       display: block !important;
     }
   }
@@ -170,11 +180,16 @@
 │                    <span class="highlight">Nick Agliano</span>                     │
 │           <span class="comment">Software Engineer • Richmond, VA</span>          │
 ╰─────────────────────────────────────────────────────╯</pre>
-      <pre class="title title-mobile" style="display: none;">╭───────────────────────────────╮
-│         <span class="highlight">Nick Agliano</span>          │
-│      <span class="comment">Software Engineer</span>        │
-│        <span class="comment">Richmond, VA</span>           │
-╰───────────────────────────────╯</pre>
+      <pre class="title title-mobile" style="display: none;">╭─────────────────────────╮
+│    <span class="highlight">Nick Agliano</span>     │
+│ <span class="comment">Software Engineer</span>  │
+│   <span class="comment">Richmond, VA</span>    │
+╰─────────────────────────╯</pre>
+      <pre class="title title-small-mobile" style="display: none;">╭─────────────────╮
+│ <span class="highlight">Nick Agliano</span> │
+│<span class="comment">Software Eng.</span>│
+│ <span class="comment">Richmond, VA</span> │
+╰─────────────────╯</pre>
     </div>
 
     <div class="section">
