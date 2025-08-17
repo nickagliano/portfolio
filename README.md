@@ -1,3 +1,3 @@
 # portfolio
 
-My very, very basic personal landing page :)
+My personal landing page
