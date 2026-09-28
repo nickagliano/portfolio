@@ -5,155 +5,400 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
   <title>Nick Agliano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Homemade+Apple&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #3a3a3a;
+      --strong: #1f1f1f;
+      --muted: #6b6b6b;
+      --rule: #e6e6e6;
+      --detail-rule: #9a9a9a;
+      --button-bg: #1a1a1a;
+      --button-text: #ffffff;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    a { color: inherit; text-underline-offset: 3px; text-decoration-color: var(--detail-rule); }
+    a:hover { text-decoration-color: currentColor; }
+
+    .page {
+      display: grid;
+      grid-template-columns: minmax(340px, 1fr) 2.2fr;
+      min-height: 100vh;
+    }
+
+    /* Left: the letter */
+    .letter {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 3rem 2.5rem;
+      border-right: 1px solid var(--rule);
+    }
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 1rem;
+    }
+    .letter h1 {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--strong);
+      margin: 0 0 0.75rem;
+    }
+    .letter .subtitle {
+      font-size: 1.6rem;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--strong);
+      margin: 0 0 2rem;
+    }
+    .letter p { margin: 0 0 1rem; }
+    .signature {
+      font-family: "Homemade Apple", cursive;
+      font-size: 1.8rem;
+      color: var(--strong);
+      margin: 1.5rem 0 0.25rem;
+    }
+    .signoff { color: var(--muted); }
+
+    /* Right: rows */
+    .rows { padding: 0 3rem; }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .row h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--strong);
+      margin: 0 0 0.5rem;
+    }
+    .row .label p { margin: 0; color: var(--text); max-width: 26ch; }
+    .claims { list-style: none; margin: 0; padding: 0; }
+    .claims > li { margin: 0 0 1.4rem; }
+    .claims > li:last-child { margin-bottom: 0; }
+    .claim {
+      font-size: 1.15rem;
+      color: var(--strong);
+    }
+    .detail {
+      border-left: 1px solid var(--detail-rule);
+      padding-left: 0.75rem;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+    .year { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 0.5rem; }
+    .fav { color: var(--muted); }
+
+    details summary {
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 1.5rem;
+    }
+    details ul { columns: 2; column-gap: 2rem; padding-left: 1rem; font-size: 0.875rem; }
+
+    /* Footer CTA */
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 3rem 0;
+    }
+    .cta h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--strong);
+      margin: 0;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--button-bg);
+      color: var(--button-text);
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .page, .row { grid-template-columns: 1fr; }
+      .letter { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--rule); padding: 2rem 1rem; }
+      .rows { padding: 0 1rem; }
+      .row { gap: 1rem; padding: 2rem 0; }
+      .cta { flex-direction: column; align-items: flex-start; }
+      details ul { columns: 1; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Nick Agliano</h1>
-  <p>Software engineer based in Richmond, Virginia.</p>
+  <div class="page">
 
-  <h2>About</h2>
-  <p>
-    Historically a web developer, slowly dipping more and more into low-level
-    programming. I write blogs about technology and life. Readers beware that
-    my writing contains lots of hand waving and navel gazing.
-  </p>
+    <aside class="letter">
+      <p class="eyebrow">Richmond, Virginia</p>
+      <h1>Nick Agliano</h1>
+      <p class="subtitle">Principal Software Engineer, grid and utility software</p>
 
-  <h2>Contact</h2>
-  <ul>
-    <li>Email: first name and last name @gmail.com (no spaces or punctuation)</li>
-    <li><a href="https://linkedin.com/in/nickagliano" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
-  </ul>
+      <p>
+        I've spent six years building grid software alongside power systems engineers and
+        utility customers. Interconnection studies, hosting capacity, outage planning, and
+        generator monitoring.
+      </p>
+      <p>
+        In my experience, choosing between Postgres and ClickHouse is easy. Running a fleet of on-prem servers
+        is hard work, but it isn't a hard problem. The truly hard problems are design and
+        product: figuring out what to build, and making it simple.
+      </p>
+      <p>
+        My favorite moment is when a hard problem gets a solution so simple that people
+        say, "Well, that's obvious."
+      </p>
+      <p>
+        I love open-source software, open standards, and grassroots communities. I contribute
+        to Rust projects like <a href="https://github.com/ratatui/ratlings" rel="noopener noreferrer" target="_blank">Ratatui</a>,
+        and I've written about the CIM, the open standard for describing the power grid.
+      </p>
+      <p>
+        <a href="https://linkedin.com/in/nickagliano" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+        &middot; Email: first name and last name @gmail.com
+      </p>
 
-  <h2>Work</h2>
-  <p>
-    Principal Software Engineer at
-    <a href="https://www.simplethread.com/" rel="noopener noreferrer" target="_blank">Simple Thread</a>
-    (6 years).
-  </p>
+      <p class="signature">Nick</p>
+      <p class="signoff">&mdash; Nick Agliano</p>
+    </aside>
 
-  <h2>Active projects</h2>
-  <ul>
-    <li><a href="https://www.fivehundredwordsaday.com/" rel="noopener noreferrer" target="_blank">Five Hundred Words</a> &mdash; habitual writing application</li>
-    <li>Tending to my family, my garden, and figuring out what to do with the school bus in my driveway</li>
-  </ul>
+    <main class="rows">
 
-  <h2>Open source</h2>
-  <ul>
-    <li><a href="https://github.com/ratatui/ratlings" rel="noopener noreferrer" target="_blank">ratatui/ratlings</a> &mdash; Rustlings-style exercises for learning Ratatui (Rust TUI library)</li>
-    <li><a href="https://github.com/project-slippi/slippi-rust-extensions" rel="noopener noreferrer" target="_blank">project-slippi/slippi-rust-extensions</a> &mdash; Rust extensions for Slippi (Super Smash Bros. Melee replay analysis)</li>
-  </ul>
+      <section class="row">
+        <div class="label">
+          <h2>Experience</h2>
+          <p>Principal Software Engineer at <a href="https://www.simplethread.com/" rel="noopener noreferrer" target="_blank">Simple Thread</a>, 2020 &ndash; present</p>
+        </div>
+        <ul class="claims">
+          <li>
+            <div class="claim">Interconnection and hosting capacity</div>
+            <div class="detail">Grid data models and testing for software that helps utilities study where new generation and load can connect.</div>
+          </li>
+          <li>
+            <div class="claim">Generator performance monitoring</div>
+            <div class="detail">Helped turn a national lab research tool into a commercial product.</div>
+          </li>
+          <li>
+            <div class="claim">Outage planning</div>
+            <div class="detail">Modernized a utility's outage planning software and worked with its engineers on modern development practices.</div>
+          </li>
+          <li>
+            <div class="claim">Study performance</div>
+            <div class="detail">Made long-running utility studies much faster with distributed computing.</div>
+          </li>
+          <li>
+            <div class="claim">Developer at OccasionGenius, 2019 &ndash; 2020</div>
+            <div class="detail">Built web scrapers at an early-stage startup.</div>
+          </li>
+        </ul>
+      </section>
 
-  <h2>Writings</h2>
-  <p>Favorites marked with an asterisk.</p>
-  <ul>
-    <li>2026 &mdash; <a href="https://www.simplethread.com/exploring-the-cim-through-the-organizations-that-make-it-happen/" target="_blank">Exploring the CIM Through the Organizations That Make It Happen</a></li>
-    <li>2025 &mdash; <a href="https://www.simplethread.com/speaking-in-cim-the-26-year-old-language-of-the-power-grid/" target="_blank">Speaking in CIM: The 26 Year Old Language of the Power Grid</a></li>
-    <li>2025 &mdash; <a href="https://blog.slamdunk.software/" target="_blank">Slam Dunk Software blog (collection of posts)</a></li>
-    <li>2024 &mdash; <a href="https://www.simplethread.com/what-i-learned-about-software-from-building-a-chicken-coop/" target="_blank">What I Learned About Software From Building a Chicken Coop</a></li>
-    <li>2023 &mdash; <a href="https://www.simplethread.com/llms-in-a-vacuum-are-useless/" target="_blank">LLMs in a Vacuum Are Useless</a> (outdated take! follow-up coming soon)</li>
-    <li>2023 &mdash; <a href="https://www.simplethread.com/how-software-is-preventing-blackouts/" target="_blank">How Software Is Preventing Blackouts</a></li>
-    <li>2023 &mdash; <a href="https://www.fivehundredwordsaday.com/gpt" target="_blank">Navigating the Intersection of AI and Creative Writing</a></li>
-    <li>2022 &mdash; <a href="https://www.simplethread.com/through-the-lens-of-a-programmer/" target="_blank">Through The Lens of a Programmer</a> *</li>
-    <li>2022 &mdash; <a href="https://www.simplethread.com/through-the-lens-of-a-programmer/" target="_blank">The Bugsworth Letters (based on CS Lewis' The Screwtape Letters)</a></li>
-    <li>2022 &mdash; <a href="https://www.simplethread.com/how-to-create-a-new-rails-7-app-with-tailwind/" target="_blank">How To Create a New Rails 7 App With Tailwind</a></li>
-    <li>2021 &mdash; <a href="https://www.simplethread.com/secret-postgresql-trick/" target="_blank">Secret PostgreSQL Trick</a></li>
-    <li>2021 &mdash; <a href="https://www.simplethread.com/the-best-authentication-framework-is-no-framework-at-all/" target="_blank">The Best Authentication Framework Is No Framework At All(?)</a></li>
-    <li>2021 &mdash; <a href="https://www.simplethread.com/everything-you-ever-wanted-to-know-about-wysiwyg-editors/" target="_blank">Everything You Ever Wanted To Know About WYSIWYG Editors</a> *</li>
-    <li>2020 &mdash; <a href="https://www.simplethread.com/ruby-on-rails-in-a-week/" target="_blank">Ruby on Rails in a Week</a> *</li>
-    <li>2020 &mdash; <a href="https://www.simplethread.com/learning-to-learn/">Learning to Learn</a></li>
-  </ul>
+      <section class="row">
+        <div class="label">
+          <h2>Skills</h2>
+          <p>Domain and engineering</p>
+        </div>
+        <ul class="claims">
+          <li>
+            <div class="claim">Power systems</div>
+            <div class="detail">Siemens PSS/E, PowerGEM TARA, CIM (IEC 61970/61968), interconnection studies, hosting capacity, outage planning, PMU-based generator monitoring</div>
+          </li>
+          <li>
+            <div class="claim">Engineering</div>
+            <div class="detail">Python, Rust, Ruby on Rails, Django, Vue, React, PostgreSQL, AWS, distributed computing, API design, Claude Code (Certified Architect)</div>
+          </li>
+        </ul>
+      </section>
 
-  <h2>Talks and podcasts</h2>
-  <ul>
-    <li>2025 &mdash; <a href="https://www.distributech.com/2025-technical-conference-sessions/hosting-capacity-analysis-for-ferc-2023-and-beyond-at-dominion-energy" target="_blank">Transmission Hosting Capacity Analysis and Beyond at Dominion Energy</a></li>
-    <li>2024 &mdash; <a href="https://rvatech.com/rvatech-events/2024-rvatech-data-summit/" target="_blank">Fantasy Writing With the Assistance of LLMs</a></li>
-    <li>2021 &mdash; <a href="https://www.codewithjason.com/podcast/9478211-104-nick-agliano-software-engineer/" target="_blank">Guest on Rails With Jason Podcast</a></li>
-  </ul>
+      <section class="row">
+        <div class="label">
+          <h2>How I work</h2>
+          <p>What I believe about building software</p>
+        </div>
+        <ul class="claims">
+          <li><div class="claim">Less is usually more</div></li>
+          <li><div class="claim">Good design feels obvious in hindsight</div></li>
+          <li>
+            <div class="claim">Docs should be written by people</div>
+            <div class="detail">Generated docs bloat, drift, and bury what matters. Someone should own every claim.</div>
+          </li>
+        </ul>
+      </section>
 
-  <h2>Books I've read</h2>
-  <p>Some of the books I've read, in roughly the order I read them.</p>
-  <ul>
-    <li>The Ranger's Apprentice Series, John Flanagan</li>
-    <li>The Divide, Elizabeth Kay</li>
-    <li>Harry Potter and the Sorcerer's Stone, JK Rowling</li>
-    <li>Graceling, Kristin Cashore</li>
-    <li>Eragon, Christopher Paolini</li>
-    <li>The Warrior Heir, Cinda Williams Chima</li>
-    <li>The Wizard Heir, Cinda Williams Chima</li>
-    <li>Hatchet, Gary Paulson</li>
-    <li>Peak, Roland Smith</li>
-    <li>Everlost, Neal Shusterman</li>
-    <li>Anthem, Ayn Rand</li>
-    <li>Animal Farm, George Orwell</li>
-    <li>The Great Gatsby, F. Scott Fitzgerald</li>
-    <li>A Streetcar Named Desire, Tennessee Williams</li>
-    <li>Julius Caesar, William Shakespeare</li>
-    <li>Antigone, Sophocles</li>
-    <li>The Narnia Series, CS Lewis</li>
-    <li>Rappaccini's Daughter, Nathaniel Hawthorne</li>
-    <li>The Kite Runner, Khaled Hosseini</li>
-    <li>Things Fall Apart, Chinua Achebe</li>
-    <li>Cry, the Beloved Country, Alan Paton</li>
-    <li>All Quiet on the Western Front, Erich Maria Remarque</li>
-    <li>Like Water for Chocolate, Laura Esquivel</li>
-    <li>The Stranger, Albert Camus</li>
-    <li>The Assault, Harry Mulisch</li>
-    <li>Perfume, Patrick Suskind</li>
-    <li>Death of a Salesman, Arthur Miller</li>
-    <li>The Piano Lesson, August Wilson</li>
-    <li>The Lion and the Jewel, Wole Soyinka</li>
-    <li>The Name of the Wind, Patrick Rothfuss</li>
-    <li>The Wise Man's Fear, Patrick Rothfuss</li>
-    <li>Musicophilia, Oliver Sacks</li>
-    <li>The Martian, Andy Weir</li>
-    <li>Welcome to Nightvale, Joseph Fink</li>
-    <li>The Diary of a Young Girl, Anne Frank</li>
-    <li>Evolution, Carl Bergstrom</li>
-    <li>Hillbilly Elegy, JD Vance</li>
-    <li>Extremely Loud &amp; Incredibly Close, Jonathan Safran Foer</li>
-    <li>The Three-Body Problem, Liu Cixin</li>
-    <li>A Small Porch, Wendell Berry</li>
-    <li>The Bible, multiple authors</li>
-    <li>The Emerald Mile, Kevin Fedarko</li>
-    <li>Mere Christianity, CS Lewis</li>
-    <li>Infinite Reality: The Hidden Blueprint of Our Virtual Lives, Jim Blascovich</li>
-    <li>Chaos: Making a New Science, James Gleick</li>
-    <li>There's This River... Grand Canyon Boatman Stories, Christa Sadler</li>
-    <li>Raging River, Lonely Trail Tales Told by the Campfire's Glow, Vaughn Short</li>
-    <li>Dune, Frank Herbert</li>
-    <li>A Gentleman in Moscow, Amor Towles *</li>
-    <li>The Unbroken Thread, Sohrab Ahmari *</li>
-    <li>SQL Cookbook: Query Solutions and Techniques for Database Developers, Anthony Molinaro</li>
-    <li>Thoughts for Young Men, JC Ryle</li>
-    <li>Spurgeon's Sermons Vol 1, Charles Spurgeon</li>
-    <li>East of Eden, John Steinbeck</li>
-    <li>On the Road, Jack Kerouac</li>
-    <li>A Timbered Choir, Wendell Berry *</li>
-    <li>The Screwtape Letters, CS Lewis *</li>
-    <li>Reforesting Faith, Matthew Sleeth</li>
-    <li>Gilead, Marilynne Robinson *</li>
-    <li>Dawn of the New Everything, Jaron Lanier *</li>
-    <li>Magic Kingdom for Sale -- Sold!, Terry Brooks</li>
-    <li>Peopleware, Timothy Lister and Tom DeMarco</li>
-    <li>Polished Ruby Programming, Jeremy Evans</li>
-    <li>God, Technology, and the Christian Life, Tony Reinke *</li>
-    <li>The Lost World of Genesis One: Ancient Cosmology and the Origins Debate, John H Walton</li>
-    <li>Who by Fire: Leonard Cohen in the Sinai, Matti Friedman</li>
-    <li>The Fifth Season, NK Jemisin</li>
-    <li>The Seven Storey Mountain, Thomas Merton *</li>
-    <li>The Confessions, Augustine of Hippo *</li>
-    <li>End of the Affair, Graham Greene *</li>
-    <li>Just Enough Research, Erika Hall</li>
-    <li>Why I Am Not a Christian and Other Essays on Religion and Related Subjects, Bertrand Russell *</li>
-    <li>Absalom, Absalom!, William Faulkner</li>
-    <li>The Complete Stories, Flannery O'Connor</li>
-    <li>Guards! Guards!, Terry Pratchett *</li>
-    <li>Orthodoxy, GK Chesterton *</li>
-    <li>The Hobbit, JRR Tolkien</li>
-    <li>Anna Karenina, Leo Tolstoy *</li>
-    <li>The Master and Margarita, Mikhail Bulgakov *</li>
-    <li>A Ballet of Lepers, Leonard Cohen</li>
-    <li>How the Irish Saved Civilization, Thomas Cahill</li>
-    <li>Moby-Dick, Herman Melville</li>
-  </ul>
+      <section class="row">
+        <div class="label">
+          <h2>Writing</h2>
+          <p>Technology, the grid, and life. Favorites marked with an asterisk.</p>
+        </div>
+        <ul class="claims">
+          <li><div class="claim"><span class="year">2026</span><a href="https://www.simplethread.com/exploring-the-cim-through-the-organizations-that-make-it-happen/" target="_blank">Exploring the CIM Through the Organizations That Make It Happen</a></div></li>
+          <li><div class="claim"><span class="year">2025</span><a href="https://www.simplethread.com/speaking-in-cim-the-26-year-old-language-of-the-power-grid/" target="_blank">Speaking in CIM: The 26 Year Old Language of the Power Grid</a></div></li>
+          <li><div class="claim"><span class="year">2024</span><a href="https://www.simplethread.com/what-i-learned-about-software-from-building-a-chicken-coop/" target="_blank">What I Learned About Software From Building a Chicken Coop</a></div></li>
+          <li>
+            <div class="claim"><span class="year">2023</span><a href="https://www.simplethread.com/llms-in-a-vacuum-are-useless/" target="_blank">LLMs in a Vacuum Are Useless</a></div>
+            <div class="detail">Outdated take! Follow-up coming soon.</div>
+          </li>
+          <li><div class="claim"><span class="year">2023</span><a href="https://www.simplethread.com/how-software-is-preventing-blackouts/" target="_blank">How Software Is Preventing Blackouts</a></div></li>
+          <li><div class="claim"><span class="year">2023</span><a href="https://www.fivehundredwordsaday.com/gpt" target="_blank">Navigating the Intersection of AI and Creative Writing</a></div></li>
+          <li><div class="claim"><span class="year">2022</span><a href="https://www.simplethread.com/through-the-lens-of-a-programmer/" target="_blank">Through The Lens of a Programmer</a> <span class="fav">*</span></div></li>
+          <li><div class="claim"><span class="year">2022</span><a href="https://www.simplethread.com/through-the-lens-of-a-programmer/" target="_blank">The Bugsworth Letters</a></div></li>
+          <li><div class="claim"><span class="year">2022</span><a href="https://www.simplethread.com/how-to-create-a-new-rails-7-app-with-tailwind/" target="_blank">How To Create a New Rails 7 App With Tailwind</a></div></li>
+          <li><div class="claim"><span class="year">2021</span><a href="https://www.simplethread.com/secret-postgresql-trick/" target="_blank">Secret PostgreSQL Trick</a></div></li>
+          <li><div class="claim"><span class="year">2021</span><a href="https://www.simplethread.com/the-best-authentication-framework-is-no-framework-at-all/" target="_blank">The Best Authentication Framework Is No Framework At All(?)</a></div></li>
+          <li><div class="claim"><span class="year">2021</span><a href="https://www.simplethread.com/everything-you-ever-wanted-to-know-about-wysiwyg-editors/" target="_blank">Everything You Ever Wanted To Know About WYSIWYG Editors</a> <span class="fav">*</span></div></li>
+          <li><div class="claim"><span class="year">2020</span><a href="https://www.simplethread.com/ruby-on-rails-in-a-week/" target="_blank">Ruby on Rails in a Week</a> <span class="fav">*</span></div></li>
+          <li><div class="claim"><span class="year">2020</span><a href="https://www.simplethread.com/learning-to-learn/">Learning to Learn</a></div></li>
+        </ul>
+      </section>
+
+      <section class="row">
+        <div class="label">
+          <h2>Talks</h2>
+          <p>Conferences and podcasts</p>
+        </div>
+        <ul class="claims">
+          <li><div class="claim"><span class="year">2025</span>Transmission Hosting Capacity Analysis and Beyond at Dominion Energy (DistribuTECH)</div></li>
+          <li><div class="claim"><span class="year">2024</span><a href="https://rvatech.com/rvatech-events/2024-rvatech-data-summit/" target="_blank">Fantasy Writing With the Assistance of LLMs</a></div></li>
+          <li><div class="claim"><span class="year">2021</span><a href="https://www.codewithjason.com/podcast/9478211-104-nick-agliano-software-engineer/" target="_blank">Guest on Rails With Jason Podcast</a></div></li>
+        </ul>
+      </section>
+
+      <section class="row" style="border-bottom:0">
+        <div class="label">
+          <h2>Reading</h2>
+          <p>Some favorites, and the full list in roughly the order I read them</p>
+        </div>
+        <div>
+          <ul class="claims">
+            <li><div class="claim">Gilead, Marilynne Robinson</div></li>
+            <li><div class="claim">The Master and Margarita, Mikhail Bulgakov</div></li>
+            <li><div class="claim">Orthodoxy, GK Chesterton</div></li>
+            <li><div class="claim">A Gentleman in Moscow, Amor Towles</div></li>
+            <li><div class="claim">The Seven Storey Mountain, Thomas Merton</div></li>
+          </ul>
+          <details>
+            <summary>Show all books</summary>
+            <ul>
+              <li>The Ranger's Apprentice Series, John Flanagan</li>
+              <li>The Divide, Elizabeth Kay</li>
+              <li>Harry Potter and the Sorcerer's Stone, JK Rowling</li>
+              <li>Graceling, Kristin Cashore</li>
+              <li>Eragon, Christopher Paolini</li>
+              <li>The Warrior Heir, Cinda Williams Chima</li>
+              <li>The Wizard Heir, Cinda Williams Chima</li>
+              <li>Hatchet, Gary Paulson</li>
+              <li>Peak, Roland Smith</li>
+              <li>Everlost, Neal Shusterman</li>
+              <li>Anthem, Ayn Rand</li>
+              <li>Animal Farm, George Orwell</li>
+              <li>The Great Gatsby, F. Scott Fitzgerald</li>
+              <li>A Streetcar Named Desire, Tennessee Williams</li>
+              <li>Julius Caesar, William Shakespeare</li>
+              <li>Antigone, Sophocles</li>
+              <li>The Narnia Series, CS Lewis</li>
+              <li>Rappaccini's Daughter, Nathaniel Hawthorne</li>
+              <li>The Kite Runner, Khaled Hosseini</li>
+              <li>Things Fall Apart, Chinua Achebe</li>
+              <li>Cry, the Beloved Country, Alan Paton</li>
+              <li>All Quiet on the Western Front, Erich Maria Remarque</li>
+              <li>Like Water for Chocolate, Laura Esquivel</li>
+              <li>The Stranger, Albert Camus</li>
+              <li>The Assault, Harry Mulisch</li>
+              <li>Perfume, Patrick Suskind</li>
+              <li>Death of a Salesman, Arthur Miller</li>
+              <li>The Piano Lesson, August Wilson</li>
+              <li>The Lion and the Jewel, Wole Soyinka</li>
+              <li>The Name of the Wind, Patrick Rothfuss</li>
+              <li>The Wise Man's Fear, Patrick Rothfuss</li>
+              <li>Musicophilia, Oliver Sacks</li>
+              <li>The Martian, Andy Weir</li>
+              <li>Welcome to Nightvale, Joseph Fink</li>
+              <li>The Diary of a Young Girl, Anne Frank</li>
+              <li>Evolution, Carl Bergstrom</li>
+              <li>Hillbilly Elegy, JD Vance</li>
+              <li>Extremely Loud &amp; Incredibly Close, Jonathan Safran Foer</li>
+              <li>The Three-Body Problem, Liu Cixin</li>
+              <li>A Small Porch, Wendell Berry</li>
+              <li>The Bible, multiple authors</li>
+              <li>The Emerald Mile, Kevin Fedarko</li>
+              <li>Mere Christianity, CS Lewis</li>
+              <li>Infinite Reality: The Hidden Blueprint of Our Virtual Lives, Jim Blascovich</li>
+              <li>Chaos: Making a New Science, James Gleick</li>
+              <li>There's This River... Grand Canyon Boatman Stories, Christa Sadler</li>
+              <li>Raging River, Lonely Trail Tales Told by the Campfire's Glow, Vaughn Short</li>
+              <li>Dune, Frank Herbert</li>
+              <li>A Gentleman in Moscow, Amor Towles *</li>
+              <li>The Unbroken Thread, Sohrab Ahmari *</li>
+              <li>SQL Cookbook: Query Solutions and Techniques for Database Developers, Anthony Molinaro</li>
+              <li>Thoughts for Young Men, JC Ryle</li>
+              <li>Spurgeon's Sermons Vol 1, Charles Spurgeon</li>
+              <li>East of Eden, John Steinbeck</li>
+              <li>On the Road, Jack Kerouac</li>
+              <li>A Timbered Choir, Wendell Berry *</li>
+              <li>The Screwtape Letters, CS Lewis *</li>
+              <li>Reforesting Faith, Matthew Sleeth</li>
+              <li>Gilead, Marilynne Robinson *</li>
+              <li>Dawn of the New Everything, Jaron Lanier *</li>
+              <li>Magic Kingdom for Sale -- Sold!, Terry Brooks</li>
+              <li>Peopleware, Timothy Lister and Tom DeMarco</li>
+              <li>Polished Ruby Programming, Jeremy Evans</li>
+              <li>God, Technology, and the Christian Life, Tony Reinke *</li>
+              <li>The Lost World of Genesis One: Ancient Cosmology and the Origins Debate, John H Walton</li>
+              <li>Who by Fire: Leonard Cohen in the Sinai, Matti Friedman</li>
+              <li>The Fifth Season, NK Jemisin</li>
+              <li>The Seven Storey Mountain, Thomas Merton *</li>
+              <li>The Confessions, Augustine of Hippo *</li>
+              <li>End of the Affair, Graham Greene *</li>
+              <li>Just Enough Research, Erika Hall</li>
+              <li>Why I Am Not a Christian and Other Essays on Religion and Related Subjects, Bertrand Russell *</li>
+              <li>Absalom, Absalom!, William Faulkner</li>
+              <li>The Complete Stories, Flannery O'Connor</li>
+              <li>Guards! Guards!, Terry Pratchett *</li>
+              <li>Orthodoxy, GK Chesterton *</li>
+              <li>The Hobbit, JRR Tolkien</li>
+              <li>Anna Karenina, Leo Tolstoy *</li>
+              <li>The Master and Margarita, Mikhail Bulgakov *</li>
+              <li>A Ballet of Lepers, Leonard Cohen</li>
+              <li>How the Irish Saved Civilization, Thomas Cahill</li>
+              <li>Moby-Dick, Herman Melville</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+
+    </main>
+  </div>
 </body>
 </html>
