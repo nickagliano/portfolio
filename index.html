@@ -120,6 +120,7 @@
       margin-top: 1.5rem;
     }
     details ul { columns: 2; column-gap: 2rem; padding-left: 1rem; font-size: 0.875rem; }
+    .recent-label { margin: 2.5rem 0 1rem; }
 
     /* Footer CTA */
     .cta {
@@ -313,6 +314,10 @@
             <li><div class="claim">A Gentleman in Moscow, Amor Towles</div></li>
             <li><div class="claim">The Seven Storey Mountain, Thomas Merton</div></li>
           </ul>
+          <div id="recent" hidden>
+            <p class="eyebrow recent-label">Recently read</p>
+            <ul class="claims"></ul>
+          </div>
           <details>
             <summary>Show all books</summary>
             <ul>
@@ -406,5 +411,23 @@
 
     </main>
   </div>
+  <script>
+    // Recently read: the last few books of the full list (it's in reading order), newest first.
+    (() => {
+      const RECENT = 3;
+      const books = [...document.querySelectorAll('details li')].slice(-RECENT).reverse();
+      const box = document.getElementById('recent');
+      const list = box.querySelector('ul');
+      for (const book of books) {
+        const li = document.createElement('li');
+        const claim = document.createElement('div');
+        claim.className = 'claim';
+        claim.textContent = book.textContent.replace(/\s*\*$/, '');
+        li.appendChild(claim);
+        list.appendChild(li);
+      }
+      box.hidden = books.length === 0;
+    })();
+  </script>
 </body>
 </html>
