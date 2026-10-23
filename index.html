@@ -151,7 +151,8 @@
     @media (max-width: 900px) {
       .page, .row { grid-template-columns: 1fr; }
       .letter { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--rule); padding: 2rem 1rem; }
-      .rows { padding: 0 1rem; }
+      .rows { padding: 0 1rem; display: flex; flex-direction: column; }
+      .writing { order: -1; }
       .row { gap: 1rem; padding: 2rem 0; }
       .cta { flex-direction: column; align-items: flex-start; }
       details ul { columns: 1; }
@@ -253,7 +254,7 @@
         </ul>
       </section>
 
-      <section class="row">
+      <section class="row writing">
         <div class="label">
           <h2>Writing</h2>
           <p>Technology, the grid, and life. Favorites marked with an asterisk.</p>
