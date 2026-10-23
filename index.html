@@ -113,13 +113,45 @@
     .year { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 0.5rem; }
     .fav { color: var(--muted); }
 
-    details summary {
+    /* Books: newest first, with a thin time arrow down the right side. */
+    .books {
+      list-style: none;
+      margin: 0;
+      padding: 0 1.75rem 0 0;
+      position: relative;
+      font-size: 0.95rem;
+    }
+    .books li { margin: 0 0 0.6rem; }
+    .books::after {
+      content: "";
+      position: absolute;
+      top: 0.4rem;
+      bottom: 0.4rem;
+      right: 0.25rem;
+      border-right: 1px solid var(--detail-rule);
+    }
+    .books::before {
+      content: "";
+      position: absolute;
+      top: 0.4rem;
+      right: calc(0.25rem - 3px);
+      width: 5px;
+      height: 5px;
+      border-top: 1px solid var(--detail-rule);
+      border-left: 1px solid var(--detail-rule);
+      transform: rotate(45deg);
+    }
+    .books.collapsed li:nth-child(n+6) { display: none; }
+    .more {
+      background: none;
+      border: 0;
+      padding: 0;
       cursor: pointer;
+      font: inherit;
       color: var(--muted);
       font-size: 0.9rem;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
-    details ul { columns: 2; column-gap: 2rem; padding-left: 1rem; font-size: 0.875rem; }
 
     /* Footer CTA */
     .cta {
@@ -155,7 +187,6 @@
       .writing { order: -1; }
       .row { gap: 1rem; padding: 2rem 0; }
       .cta { flex-direction: column; align-items: flex-start; }
-      details ul { columns: 1; }
     }
   </style>
 </head>
@@ -303,124 +334,114 @@
       <section class="row" style="border-bottom:0">
         <div class="label">
           <h2>Reading</h2>
-          <p>Recently read, and the full list in roughly the order I read them</p>
+          <p>Most recent first, in roughly the order I read them</p>
           <p><em>Favorites are marked with *</em></p>
         </div>
         <div>
-          <ul class="claims" id="recent"></ul>
-          <details>
-            <summary>Show all books</summary>
-            <ul>
-              <li>The Ranger's Apprentice Series, John Flanagan</li>
-              <li>The Divide, Elizabeth Kay</li>
-              <li>Harry Potter and the Sorcerer's Stone, JK Rowling</li>
-              <li>Graceling, Kristin Cashore</li>
-              <li>Eragon, Christopher Paolini</li>
-              <li>The Warrior Heir, Cinda Williams Chima</li>
-              <li>The Wizard Heir, Cinda Williams Chima</li>
-              <li>Hatchet, Gary Paulson</li>
-              <li>Peak, Roland Smith</li>
-              <li>Everlost, Neal Shusterman</li>
-              <li>Anthem, Ayn Rand</li>
-              <li>Animal Farm, George Orwell</li>
-              <li>The Great Gatsby, F. Scott Fitzgerald</li>
-              <li>A Streetcar Named Desire, Tennessee Williams</li>
-              <li>Julius Caesar, William Shakespeare</li>
-              <li>Antigone, Sophocles</li>
-              <li>The Narnia Series, CS Lewis</li>
-              <li>Rappaccini's Daughter, Nathaniel Hawthorne</li>
-              <li>The Kite Runner, Khaled Hosseini</li>
-              <li>Things Fall Apart, Chinua Achebe</li>
-              <li>Cry, the Beloved Country, Alan Paton</li>
-              <li>All Quiet on the Western Front, Erich Maria Remarque</li>
-              <li>Like Water for Chocolate, Laura Esquivel</li>
-              <li>The Stranger, Albert Camus</li>
-              <li>The Assault, Harry Mulisch</li>
-              <li>Perfume, Patrick Suskind</li>
-              <li>Death of a Salesman, Arthur Miller</li>
-              <li>The Piano Lesson, August Wilson</li>
-              <li>The Lion and the Jewel, Wole Soyinka</li>
-              <li>The Name of the Wind, Patrick Rothfuss</li>
-              <li>The Wise Man's Fear, Patrick Rothfuss</li>
-              <li>Musicophilia, Oliver Sacks</li>
-              <li>The Martian, Andy Weir</li>
-              <li>Welcome to Nightvale, Joseph Fink</li>
-              <li>The Diary of a Young Girl, Anne Frank</li>
-              <li>Evolution, Carl Bergstrom</li>
-              <li>Hillbilly Elegy, JD Vance</li>
-              <li>Extremely Loud &amp; Incredibly Close, Jonathan Safran Foer</li>
-              <li>The Three-Body Problem, Liu Cixin</li>
-              <li>A Small Porch, Wendell Berry</li>
-              <li>The Bible, multiple authors</li>
-              <li>The Emerald Mile, Kevin Fedarko</li>
-              <li>Mere Christianity, CS Lewis</li>
-              <li>Infinite Reality: The Hidden Blueprint of Our Virtual Lives, Jim Blascovich</li>
-              <li>Chaos: Making a New Science, James Gleick</li>
-              <li>There's This River... Grand Canyon Boatman Stories, Christa Sadler</li>
-              <li>Raging River, Lonely Trail Tales Told by the Campfire's Glow, Vaughn Short</li>
-              <li>Dune, Frank Herbert</li>
-              <li>A Gentleman in Moscow, Amor Towles *</li>
-              <li>The Unbroken Thread, Sohrab Ahmari *</li>
-              <li>SQL Cookbook: Query Solutions and Techniques for Database Developers, Anthony Molinaro</li>
-              <li>Thoughts for Young Men, JC Ryle</li>
-              <li>Spurgeon's Sermons Vol 1, Charles Spurgeon</li>
-              <li>East of Eden, John Steinbeck</li>
-              <li>On the Road, Jack Kerouac</li>
-              <li>A Timbered Choir, Wendell Berry *</li>
-              <li>The Screwtape Letters, CS Lewis *</li>
-              <li>Reforesting Faith, Matthew Sleeth</li>
-              <li>Gilead, Marilynne Robinson *</li>
-              <li>Dawn of the New Everything, Jaron Lanier *</li>
-              <li>Magic Kingdom for Sale -- Sold!, Terry Brooks</li>
-              <li>Peopleware, Timothy Lister and Tom DeMarco</li>
-              <li>Polished Ruby Programming, Jeremy Evans</li>
-              <li>God, Technology, and the Christian Life, Tony Reinke *</li>
-              <li>The Lost World of Genesis One: Ancient Cosmology and the Origins Debate, John H Walton</li>
-              <li>Who by Fire: Leonard Cohen in the Sinai, Matti Friedman</li>
-              <li>The Fifth Season, NK Jemisin</li>
-              <li>The Seven Storey Mountain, Thomas Merton *</li>
-              <li>The Confessions, Augustine of Hippo *</li>
-              <li>End of the Affair, Graham Greene *</li>
-              <li>Just Enough Research, Erika Hall</li>
-              <li>Why I Am Not a Christian and Other Essays on Religion and Related Subjects, Bertrand Russell *</li>
-              <li>Absalom, Absalom!, William Faulkner</li>
-              <li>The Complete Stories, Flannery O'Connor</li>
-              <li>Guards! Guards!, Terry Pratchett *</li>
-              <li>Orthodoxy, GK Chesterton *</li>
-              <li>The Hobbit, JRR Tolkien</li>
-              <li>Anna Karenina, Leo Tolstoy *</li>
-              <li>The Master and Margarita, Mikhail Bulgakov *</li>
-              <li>A Ballet of Lepers, Leonard Cohen</li>
-              <li>How the Irish Saved Civilization, Thomas Cahill</li>
-              <li>Ada or Ardor, Vladimir Nabokov</li>
+          <!-- Newest first: add each new book at the top. A trailing &amp;nbsp;* marks a favorite. -->
+          <ul class="books" id="books">
               <li>Moby-Dick, Herman Melville</li>
-            </ul>
-          </details>
+              <li>Ada or Ardor, Vladimir Nabokov</li>
+              <li>How the Irish Saved Civilization, Thomas Cahill</li>
+              <li>A Ballet of Lepers, Leonard Cohen</li>
+              <li>The Master and Margarita, Mikhail Bulgakov&nbsp;*</li>
+              <li>Anna Karenina, Leo Tolstoy&nbsp;*</li>
+              <li>The Hobbit, JRR Tolkien</li>
+              <li>Orthodoxy, GK Chesterton&nbsp;*</li>
+              <li>Guards! Guards!, Terry Pratchett&nbsp;*</li>
+              <li>The Complete Stories, Flannery O'Connor</li>
+              <li>Absalom, Absalom!, William Faulkner</li>
+              <li>Why I Am Not a Christian and Other Essays on Religion and Related Subjects, Bertrand Russell&nbsp;*</li>
+              <li>Just Enough Research, Erika Hall</li>
+              <li>End of the Affair, Graham Greene&nbsp;*</li>
+              <li>The Confessions, Augustine of Hippo&nbsp;*</li>
+              <li>The Seven Storey Mountain, Thomas Merton&nbsp;*</li>
+              <li>The Fifth Season, NK Jemisin</li>
+              <li>Who by Fire: Leonard Cohen in the Sinai, Matti Friedman</li>
+              <li>The Lost World of Genesis One: Ancient Cosmology and the Origins Debate, John H Walton</li>
+              <li>God, Technology, and the Christian Life, Tony Reinke&nbsp;*</li>
+              <li>Polished Ruby Programming, Jeremy Evans</li>
+              <li>Peopleware, Timothy Lister and Tom DeMarco</li>
+              <li>Magic Kingdom for Sale -- Sold!, Terry Brooks</li>
+              <li>Dawn of the New Everything, Jaron Lanier&nbsp;*</li>
+              <li>Gilead, Marilynne Robinson&nbsp;*</li>
+              <li>Reforesting Faith, Matthew Sleeth</li>
+              <li>The Screwtape Letters, CS Lewis&nbsp;*</li>
+              <li>A Timbered Choir, Wendell Berry&nbsp;*</li>
+              <li>On the Road, Jack Kerouac</li>
+              <li>East of Eden, John Steinbeck</li>
+              <li>Spurgeon's Sermons Vol 1, Charles Spurgeon</li>
+              <li>Thoughts for Young Men, JC Ryle</li>
+              <li>SQL Cookbook: Query Solutions and Techniques for Database Developers, Anthony Molinaro</li>
+              <li>The Unbroken Thread, Sohrab Ahmari&nbsp;*</li>
+              <li>A Gentleman in Moscow, Amor Towles&nbsp;*</li>
+              <li>Dune, Frank Herbert</li>
+              <li>Raging River, Lonely Trail Tales Told by the Campfire's Glow, Vaughn Short</li>
+              <li>There's This River... Grand Canyon Boatman Stories, Christa Sadler</li>
+              <li>Chaos: Making a New Science, James Gleick</li>
+              <li>Infinite Reality: The Hidden Blueprint of Our Virtual Lives, Jim Blascovich</li>
+              <li>Mere Christianity, CS Lewis</li>
+              <li>The Emerald Mile, Kevin Fedarko</li>
+              <li>The Bible, multiple authors</li>
+              <li>A Small Porch, Wendell Berry</li>
+              <li>The Three-Body Problem, Liu Cixin</li>
+              <li>Extremely Loud &amp; Incredibly Close, Jonathan Safran Foer</li>
+              <li>Hillbilly Elegy, JD Vance</li>
+              <li>Evolution, Carl Bergstrom</li>
+              <li>The Diary of a Young Girl, Anne Frank</li>
+              <li>Welcome to Nightvale, Joseph Fink</li>
+              <li>The Martian, Andy Weir</li>
+              <li>Musicophilia, Oliver Sacks</li>
+              <li>The Wise Man's Fear, Patrick Rothfuss</li>
+              <li>The Name of the Wind, Patrick Rothfuss</li>
+              <li>The Lion and the Jewel, Wole Soyinka</li>
+              <li>The Piano Lesson, August Wilson</li>
+              <li>Death of a Salesman, Arthur Miller</li>
+              <li>Perfume, Patrick Suskind</li>
+              <li>The Assault, Harry Mulisch</li>
+              <li>The Stranger, Albert Camus</li>
+              <li>Like Water for Chocolate, Laura Esquivel</li>
+              <li>All Quiet on the Western Front, Erich Maria Remarque</li>
+              <li>Cry, the Beloved Country, Alan Paton</li>
+              <li>Things Fall Apart, Chinua Achebe</li>
+              <li>The Kite Runner, Khaled Hosseini</li>
+              <li>Rappaccini's Daughter, Nathaniel Hawthorne</li>
+              <li>The Narnia Series, CS Lewis</li>
+              <li>Antigone, Sophocles</li>
+              <li>Julius Caesar, William Shakespeare</li>
+              <li>A Streetcar Named Desire, Tennessee Williams</li>
+              <li>The Great Gatsby, F. Scott Fitzgerald</li>
+              <li>Animal Farm, George Orwell</li>
+              <li>Anthem, Ayn Rand</li>
+              <li>Everlost, Neal Shusterman</li>
+              <li>Peak, Roland Smith</li>
+              <li>Hatchet, Gary Paulson</li>
+              <li>The Wizard Heir, Cinda Williams Chima</li>
+              <li>The Warrior Heir, Cinda Williams Chima</li>
+              <li>Eragon, Christopher Paolini</li>
+              <li>Graceling, Kristin Cashore</li>
+              <li>Harry Potter and the Sorcerer's Stone, JK Rowling</li>
+              <li>The Divide, Elizabeth Kay</li>
+              <li>The Ranger's Apprentice Series, John Flanagan</li>
+          </ul>
+          <button class="more" id="more" hidden>Show all books</button>
         </div>
       </section>
 
     </main>
   </div>
   <script>
-    // Recently read: the last few books of the full list (it's in reading order), newest first.
+    // Show the five most recent books; the button reveals the rest. Without JS the whole list shows.
     (() => {
-      const RECENT = 5;
-      const list = document.getElementById('recent');
-      for (const book of [...document.querySelectorAll('details li')].slice(-RECENT).reverse()) {
-        const fav = /\s*\*$/.test(book.textContent);
-        const li = document.createElement('li');
-        const claim = document.createElement('div');
-        claim.className = 'claim';
-        claim.textContent = book.textContent.replace(/\s*\*$/, '');
-        if (fav) {
-          const star = document.createElement('span');
-          star.className = 'fav';
-          star.textContent = ' *';
-          claim.appendChild(star);
-        }
-        li.appendChild(claim);
-        list.appendChild(li);
-      }
+      const books = document.getElementById('books');
+      const more = document.getElementById('more');
+      if (books.children.length <= 5) return;
+      books.classList.add('collapsed');
+      more.hidden = false;
+      more.addEventListener('click', () => {
+        const collapsed = books.classList.toggle('collapsed');
+        more.textContent = collapsed ? 'Show all books' : 'Show fewer';
+      });
     })();
   </script>
 </body>
