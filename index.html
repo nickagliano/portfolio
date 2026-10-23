@@ -142,6 +142,18 @@
       transform: rotate(45deg);
     }
     .books.collapsed li:nth-child(n+6) { display: none; }
+    .timeline { position: relative; }
+    .axis-label {
+      position: absolute;
+      top: 1rem;
+      right: 0.55rem;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
     .more {
       background: none;
       border: 0;
@@ -334,11 +346,12 @@
       <section class="row" style="border-bottom:0">
         <div class="label">
           <h2>Reading</h2>
-          <p>Most recent first, in roughly the order I read them</p>
+          <p>Books I've read, newest first</p>
           <p><em>Favorites are marked with *</em></p>
         </div>
         <div>
           <!-- Newest first: add each new book at the top. A trailing &amp;nbsp;* marks a favorite. -->
+          <div class="timeline">
           <ul class="books" id="books">
               <li>Moby-Dick, Herman Melville</li>
               <li>Ada or Ardor, Vladimir Nabokov</li>
@@ -424,6 +437,8 @@
               <li>The Divide, Elizabeth Kay</li>
               <li>The Ranger's Apprentice Series, John Flanagan</li>
           </ul>
+          <span class="axis-label" aria-hidden="true">time</span>
+          </div>
           <button class="more" id="more" hidden>Show all books</button>
         </div>
       </section>
