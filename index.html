@@ -120,7 +120,6 @@
       margin-top: 1.5rem;
     }
     details ul { columns: 2; column-gap: 2rem; padding-left: 1rem; font-size: 0.875rem; }
-    .recent-label { margin: 2.5rem 0 1rem; }
 
     /* Footer CTA */
     .cta {
@@ -304,20 +303,11 @@
       <section class="row" style="border-bottom:0">
         <div class="label">
           <h2>Reading</h2>
-          <p>Some favorites, and the full list in roughly the order I read them</p>
+          <p>Recently read, and the full list in roughly the order I read them</p>
+          <p><em>Favorites are marked with *</em></p>
         </div>
         <div>
-          <ul class="claims">
-            <li><div class="claim">Gilead, Marilynne Robinson</div></li>
-            <li><div class="claim">The Master and Margarita, Mikhail Bulgakov</div></li>
-            <li><div class="claim">Orthodoxy, GK Chesterton</div></li>
-            <li><div class="claim">A Gentleman in Moscow, Amor Towles</div></li>
-            <li><div class="claim">The Seven Storey Mountain, Thomas Merton</div></li>
-          </ul>
-          <div id="recent" hidden>
-            <p class="eyebrow recent-label">Recently read</p>
-            <ul class="claims"></ul>
-          </div>
+          <ul class="claims" id="recent"></ul>
           <details>
             <summary>Show all books</summary>
             <ul>
@@ -414,19 +404,23 @@
   <script>
     // Recently read: the last few books of the full list (it's in reading order), newest first.
     (() => {
-      const RECENT = 3;
-      const books = [...document.querySelectorAll('details li')].slice(-RECENT).reverse();
-      const box = document.getElementById('recent');
-      const list = box.querySelector('ul');
-      for (const book of books) {
+      const RECENT = 5;
+      const list = document.getElementById('recent');
+      for (const book of [...document.querySelectorAll('details li')].slice(-RECENT).reverse()) {
+        const fav = /\s*\*$/.test(book.textContent);
         const li = document.createElement('li');
         const claim = document.createElement('div');
         claim.className = 'claim';
         claim.textContent = book.textContent.replace(/\s*\*$/, '');
+        if (fav) {
+          const star = document.createElement('span');
+          star.className = 'fav';
+          star.textContent = ' *';
+          claim.appendChild(star);
+        }
         li.appendChild(claim);
         list.appendChild(li);
       }
-      box.hidden = books.length === 0;
     })();
   </script>
 </body>
